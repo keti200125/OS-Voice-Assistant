@@ -1,0 +1,21 @@
+[
+    {"command_name": "open_browser", "trigger_phrase": "open browser", "category": "applications"},
+    {"command_name": "open_youtube", "trigger_phrase": "open youtube", "category": "applications"},
+    {"command_name": "open_gmail", "trigger_phrase": "open gmail", "category": "applications"},
+    {"command_name": "open_spotify", "trigger_phrase": "open spotify", "category": "applications"},
+    {"command_name": "open_moodle", "trigger_phrase": "open moodle", "category": "applications"},
+    {"command_name": "open_github_repo", "trigger_phrase": "open repository", "category": "applications"},
+    {"command_name": "open_python_course", "trigger_phrase": "open python course", "category": "applications"},
+    {"command_name": "open_notepad", "trigger_phrase": "open notepad", "category": "utilities"},
+    {"command_name": "open_calculator", "trigger_phrase": "open calculator", "category": "utilities"},
+    {"command_name": "open_settings", "trigger_phrase": "open settings", "category": "utilities"},
+    {"command_name": "open_file_explorer", "trigger_phrase": "open file explorer", "category": "utilities"},
+    {"command_name": "open_task_manager", "trigger_phrase": "open task manager", "category": "utilities"},
+    {"command_name": "open_powershell", "trigger_phrase": "open powershell", "category": "utilities"},
+    {"command_name": "open_control_panel", "trigger_phrase": "open control panel", "category": "utilities"},
+    {"command_name": "check_battery_status", "trigger_phrase": "check battery status", "category": "system"},
+    {"command_name": "check_ip_address", "trigger_phrase": "check IP address", "category": "system"},
+    {"command_name": "check_disk_space", "trigger_phrase": "check disk space", "category": "system"},
+    {"command_name": "check_running_processes", "trigger_phrase": "check running processes", "category": "system"},
+    {"command_name": "check_system_uptime", "trigger_phrase": "check system uptime", "category": "system"}
+]

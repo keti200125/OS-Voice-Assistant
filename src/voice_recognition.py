@@ -1,3 +1,5 @@
+
+
 import threading
 import speech_recognition as sr
 from src.db_manager import DatabaseManager
@@ -8,7 +10,6 @@ def recognize_speech(status_label=None):
     recognizer = sr.Recognizer()
 
     db_manager = DatabaseManager()
-
     execute_command = ExecuteCommand(db_manager)
 
     while True:
