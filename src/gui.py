@@ -27,7 +27,8 @@ class AssistantGUI:
             self.root, text="Assistant is not running.", fg="red")
         self.status_label.pack(pady=10)
 
-        self.command_frame = None
+        self.command_frame = tk.Frame(self.root)
+        self.command_frame.pack(pady=10)
 
         self.root.mainloop()
 
@@ -50,23 +51,39 @@ class AssistantGUI:
         threading.Thread(target=recognize_speech, args=(
             user_name,), daemon=True).start()
 
-        self.show_command_list()
+        self.show_category_list()
 
-    def show_command_list(self):
-        """Displays the command editing interface after starting the assistant."""
-        if self.command_frame is not None:
-            return
+    def show_category_list(self):
+        """Displays the category selection interface."""
+        for widget in self.command_frame.winfo_children():
+            widget.destroy()
 
-        self.command_frame = tk.Frame(self.root)
-        self.command_frame.pack(pady=10)
-
-        tk.Label(self.command_frame, text="Edit Commands",
+        tk.Label(self.command_frame, text="Select Command Category",
                  font=("Arial", 12)).pack(pady=5)
 
-        self.command_entries = {}
+        tk.Button(self.command_frame, text="System Commands",
+                  command=lambda: self.display_commands("system")).pack(pady=5)
+        tk.Button(self.command_frame, text="Apps Commands",
+                  command=lambda: self.display_commands("apps")).pack(pady=5)
+        tk.Button(self.command_frame, text="System Management",
+                  command=lambda: self.display_commands("management")).pack(pady=5)
 
-        commands = self.db.get_commands()
-        for command_id, command_name, trigger_phrase in commands:
+    def display_commands(self, category):
+        """Displays commands based on the selected category."""
+        for widget in self.command_frame.winfo_children():
+            widget.destroy()
+
+        tk.Label(self.command_frame, text=f"{category.capitalize()} Commands", font=(
+            "Arial", 12)).pack(pady=5)
+
+        self.command_entries = {}
+        commands = self.db.get_commands_by_category(category)
+
+        if not commands:
+            tk.Label(self.command_frame, text="No commands available.",
+                     fg="red").pack(pady=5)
+
+        for _, command_name, trigger_phrase in commands:
             frame = tk.Frame(self.command_frame)
             frame.pack(pady=2, padx=10, fill="x")
 
@@ -81,6 +98,8 @@ class AssistantGUI:
 
         tk.Button(self.command_frame, text="Save Changes",
                   command=self.save_changes).pack(pady=10)
+        tk.Button(self.command_frame, text="Back",
+                  command=self.show_category_list).pack(pady=5)
 
     def save_changes(self):
         """Saves the updated commands in the database."""

@@ -42,6 +42,12 @@ class CommandManager:
         print("Opening github repo...")
         webbrowser.open("https://github.com/keti200125/OS-Voice-Assistant")
 
+    def open_python_course(self):
+        """Opens GitHub Repo of this project..."""
+        print("Opening github repo...")
+        webbrowser.open("https://github.com/keti200125/OS-Voice-Assistant")
+
+
     def open_settings(self):
         """Opens the Windows Settings application."""
         os.system("start ms-settings:")
@@ -84,7 +90,8 @@ class CommandManager:
             "open_gmail": self.open_gmail,
             "open_spotify": self.open_spotify,
             "open_moodle": self.open_moodle,
-            "open_github": self.open_github_repo,
+            "open_github_repo": self.open_github_repo,
+            "open_python_course": self.open_python_course,
             "play_music": self.play_music,
             "close_program": self.close_program,
             "show_commands": self.show_commands,

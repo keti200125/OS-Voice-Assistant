@@ -18,7 +18,8 @@ def recognize_speech(status_label=None):
             audio = recognizer.listen(source)
 
         try:
-            command = recognizer.recognize_google(audio, language="en-US") # type: ignore
+            command = recognizer.recognize_google( # type: ignore
+                audio, language="en-US")  
             command.lower()
             print(f"Recognized: {command}")
             execute_command.execute(command)
