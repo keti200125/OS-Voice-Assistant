@@ -3,6 +3,7 @@ import speech_recognition as sr
 from src.db_manager import DatabaseManager
 from src.execute_command import ExecuteCommand
 
+
 def recognize_speech(status_label=None):
     recognizer = sr.Recognizer()
 
@@ -17,7 +18,8 @@ def recognize_speech(status_label=None):
             audio = recognizer.listen(source)
 
         try:
-            command = recognizer.recognize_google(audio, language="en-US")
+            command = recognizer.recognize_google(audio, language="en-US") # type: ignore
+            command.lower()
             print(f"Recognized: {command}")
             execute_command.execute(command)
 
