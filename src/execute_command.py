@@ -1,7 +1,11 @@
+"""Module for executing recognized voice commands."""
+
 from src.command_manager import CommandManager
 from src.assistant_speaker import AssistantSpeaker
 
 class ExecuteCommand:
+    """Handles the execution of recognized voice commands."""
+    
     def __init__(self, db_manager, gui_root=None):
         """Initializes the command executor with a database manager and optional GUI root."""
         self.command_manager = CommandManager(db_manager, gui_root)
@@ -27,7 +31,13 @@ class ExecuteCommand:
             try:
                 command_function()
                 self.assistant_speaker.announce_fulfillment(command.lower())
+            except RuntimeError as e:
+                print(f"Runtime error executing '{command}': {e}")
             except Exception as e:
-                print(f"Error executing '{command}': {e}")
+                print(f"Unexpected error executing '{command}': {e}")
         else:
             print(f"No function found for '{command_name}'.")
+
+    def validate_command(self, command):
+        """Validates whether a command exists in the database."""
+        return bool(self.database_manager.get_command_by_trigger(command.lower()))

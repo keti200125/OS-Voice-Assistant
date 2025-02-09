@@ -1,11 +1,18 @@
+"""
+Command Manager module for handling system commands and opening web services.
+
+This module provides a CommandManager class that interacts with the operating system
+to open applications, websites, and perform system-related operations.
+"""
+
 import webbrowser
-import sys
 import os
 from typing import Callable, Optional
 from src.db_manager import DatabaseManager
 
 
 class CommandManager:
+    """Manages commands for opening applications, websites, and system utilities."""
     def __init__(self, db_manager: DatabaseManager, gui_root=None):
         """Initializes the CommandManager with a database manager and optional GUI root."""
         self.db_manager = db_manager
