@@ -44,3 +44,27 @@ pip install -r requirements.txt
 ```sh
 python main.py
 ```
+
+## **Project Structure**
+```bash
+📁 OS-Voice-Assistant/               # Root directory
+│── 📁 src/                          # Source code
+│   ├── __init__.py                  # Marks src/ as a package
+│   ├── assistant_speaker.py         # Text-to-speech
+│   ├── command_manager.py           # Manages voice commands
+│   ├── db_manager.py                # Manages database
+│   ├── execute_commands.py          # Executes voice commands
+│   ├── gui.py                       # GUI
+│   ├── voice_recognition.py         # Speech recognition
+│── 📁 tst/                          # Unit tests
+│   ├── __init__.py                  # Marks tst/ as a package
+│   ├── test_assistant_speaker.py
+│   ├── test_command_manager.py
+│   ├── test_db_manager.py
+│   ├── test_execute_commands.py
+│── main.py                          # Main
+│── commands.json                    # Predefined voice commands
+│── requirements.txt                 # Dependencies
+│── README.md                        # Project documentation
+│── .gitignore                       # What to be ignored by Git
+```
