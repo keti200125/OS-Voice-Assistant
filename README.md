@@ -24,7 +24,7 @@ Before installing, make sure you have the following:
 
 ### 1. Clone the Repository
 ```sh
-git clone git clone https://github.com/keti200125/OS-Voice-Assistant.git
+git clone https://github.com/keti200125/OS-Voice-Assistant.git
 cd OS-Voice-Assistant
 ```
 
