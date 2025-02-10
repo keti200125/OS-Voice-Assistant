@@ -58,10 +58,10 @@ python main.py
 │   ├── voice_recognition.py         # Speech recognition
 │── 📁 tst/                          # Unit tests
 │   ├── __init__.py                  # Marks tst/ as a package
-│   ├── test_assistant_speaker.py
-│   ├── test_command_manager.py
-│   ├── test_db_manager.py
-│   ├── test_execute_commands.py
+│   ├── test_assistant_speaker.py    # Tests for the assistant_speaker module
+│   ├── test_command_manager.py      # Tests for the command_manager module
+│   ├── test_db_manager.py           # Tests for the db_manager module
+│   ├── test_execute_commands.py     # Tests for the execute_commands module
 │── main.py                          # Main
 │── commands.json                    # Predefined voice commands
 │── requirements.txt                 # Dependencies
