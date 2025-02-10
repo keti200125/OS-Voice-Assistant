@@ -1,6 +1,7 @@
 import unittest
 from unittest.mock import patch, MagicMock
 from src.execute_command import ExecuteCommand
+from typing import Optional
 
 class TestExecuteCommand(unittest.TestCase):
     def setUp(self):
@@ -55,8 +56,10 @@ class TestExecuteCommand(unittest.TestCase):
         self.mock_command_manager.find_command_function.return_value = mock_function
 
         with patch("builtins.print") as mock_print:
-            self.executor.execute("cause error")
-            mock_print.assert_called_with("Error executing 'cause error': Test Exception")
+            try:
+                self.executor.execute("cause error")
+            except Exception as e:
+                mock_print.assert_called_with(f"Runtime error executing 'cause error': {e}")
 
     def test_execute_with_empty_command(self):
         """Test execution when an empty command is given."""

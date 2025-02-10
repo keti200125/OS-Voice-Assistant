@@ -12,6 +12,8 @@ class AssistantSpeaker:
 
     def speak(self, text: str):
         """Pronounces the given text."""
+        if not text.strip():
+            return
         self.engine.say(text)
         self.engine.runAndWait()
 

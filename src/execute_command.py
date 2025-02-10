@@ -48,7 +48,7 @@ class ExecuteCommand:
             try:
                 command_function()
                 self.assistant_speaker.announce_fulfillment(command.lower())
-            except RuntimeError as e:
+            except Exception as e:
                 print(f"Runtime error executing '{command}': {e}")
         else:
             print(f"No function found for '{command_name}'.")
