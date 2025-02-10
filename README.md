@@ -6,6 +6,8 @@ OS Voice Assistant is a Python-based voice-controlled assistant that can recogni
 
 * Listens for voice commands
 
+* Modifies commands calls
+
 * Recognizes and processes spoken text
 
 * Executes predefined commands
