@@ -13,6 +13,7 @@ from src.db_manager import DatabaseManager
 
 class CommandManager:
     """Manages commands for opening applications, websites, and system utilities."""
+
     def __init__(self, db_manager: DatabaseManager, gui_root=None):
         """Initializes the CommandManager with a database manager and optional GUI root."""
         self.db_manager = db_manager
@@ -24,11 +25,15 @@ class CommandManager:
 
     @staticmethod
     def open_url(url: str):
-        """Opens a given URL in the default web browser."""
+        """Opens a given URL in the default web browser, handling errors properly."""
+        if not isinstance(url, str) or not url.startswith(("http://", "https://")):
+            print(f"Invalid URL format: {url}")
+            return
         try:
             webbrowser.open(url)
-        except Exception as e:
-            print(f"Error opening {url}: {e}")
+            print(f"Opening {url} in the browser...")
+        except webbrowser.Error:
+            print(f"Failed to open URL: {url} (Web browser error)")
 
     def open_browser(self):
         """Opens Google in the default web browser."""
@@ -70,8 +75,8 @@ class CommandManager:
         """Runs a system command using os.system."""
         try:
             os.system(command)
-        except Exception as e:
-            print(f"Command failed: {e}")
+        except FileNotFoundError:
+            print(f"Error: Command '{command}' not found.")
 
     def open_notepad(self):
         """Opens Notepad."""
@@ -111,7 +116,8 @@ class CommandManager:
     def check_battery_status(self):
         """Displays battery status and generates a report."""
         print("Checking battery status...")
-        self.run_system_command("powercfg /batteryreport && start battery-report.html")
+        self.run_system_command(
+            "powercfg /batteryreport && start battery-report.html")
 
     def check_ip_address(self):
         """Displays the computer's local IP address."""
