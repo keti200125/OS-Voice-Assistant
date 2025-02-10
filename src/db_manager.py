@@ -15,7 +15,7 @@ class DatabaseManager:
     """Handles database operations for storing and managing assistant commands."""
 
     def __init__(self, db_name: str = "assistant_data.db",
-                 json_file: str = "commands.json",
+                 json_file: str = "../commands.json",
                  use_memory: bool = False):
         """Initializes the database. Uses an in-memory database for testing if `use_memory=True`."""
         self.db_name = ":memory:" if use_memory else db_name
