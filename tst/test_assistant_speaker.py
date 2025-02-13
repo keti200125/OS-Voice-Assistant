@@ -1,49 +1,37 @@
-# """Unit tests for the AssistantSpeaker class."""
+"""
+Unit tests for AssistantSpeaker class in assistant_speaker module.
+"""
 
-# import unittest
-# from src.assistant_speaker import AssistantSpeaker
-# from unittest.mock import patch, MagicMock
+import unittest
+from unittest.mock import MagicMock, patch
+from src.assistant_speaker import AssistantSpeaker
 
+class TestAssistantSpeaker(unittest.TestCase):
+    """Tests for the AssistantSpeaker class."""
 
-# class TestAssistantSpeaker(unittest.TestCase):
-#     """Test cases for AssistantSpeaker class."""
+    def setUp(self):
+        """Set up the AssistantSpeaker instance with a mocked speech engine."""
+        with patch("src.assistant_speaker.pyttsx3.init", return_value=MagicMock()) as mock_init:
+            self.mock_engine = mock_init.return_value
+            self.speaker = AssistantSpeaker()
 
-#     def setUp(self) -> None:
-#         """Creates an instance of AssistantSpeaker with a mocked pyttsx3 engine."""
-#         with patch("src.assistant_speaker.pyttsx3.init") as mock_pyttsx3:
-#             self.mock_engine: MagicMock = MagicMock()
-#             mock_pyttsx3.return_value = self.mock_engine
-#             self.speaker: AssistantSpeaker = AssistantSpeaker()
+    def test_speak_calls_engine_say(self):
+        """Test if speak() calls engine.say() with the correct text."""
+        self.speaker.speak("Hello")
+        self.mock_engine.say.assert_called_once_with("Hello")
+        self.mock_engine.runAndWait.assert_called_once()
 
-#     def test_speak(self) -> None:
-#         """Tests if speak() calls pyttsx3.say() and runAndWait()."""
-#         self.speaker.speak("Test message")
+    def test_speak_does_not_speak_empty_text(self):
+        """Test that speak() does not call engine.say() when given empty text."""
+        self.speaker.speak("   ")
+        self.mock_engine.say.assert_not_called()
+        self.mock_engine.runAndWait.assert_not_called()
 
-#         self.mock_engine.say.assert_called_once_with("Test message")
-#         self.mock_engine.runAndWait.assert_called_once()
+    def test_greet_user(self):
+        """Test if greet_user() speaks the correct greeting."""
+        self.speaker.greet_user("Alice")
+        self.mock_engine.say.assert_called_once_with("Hello, Alice!")
+        self.mock_engine.runAndWait.assert_called_once()
 
-#     def test_speak_empty_string(self) -> None:
-#         """Tests if speak() handles an empty string gracefully (should not speak)."""
-#         self.speaker.speak("")
-
-#         self.mock_engine.say.assert_not_called()
-#         self.mock_engine.runAndWait.assert_not_called()
-
-#     def test_greet_user(self) -> None:
-#         """Tests if greet_user() correctly says the greeting."""
-#         self.speaker.greet_user("Alice")
-
-#         self.mock_engine.say.assert_called_once_with("Hello, Alice!")
-#         self.mock_engine.runAndWait.assert_called_once()
-
-#     @patch("time.sleep", return_value=None)
-#     def test_announce_fulfillment(self, _: MagicMock) -> None:
-#         """Tests if announce_fulfillment() correctly announces command execution."""
-#         self.speaker.announce_fulfillment("Open browser")
-
-#         self.mock_engine.say.assert_called_once_with("Open browser is fulfilled")
-#         self.mock_engine.runAndWait.assert_called_once()
-
-
-# if __name__ == "__main__":
-#     unittest.main()
+if __name__ == "__main__":
+    unittest.main()

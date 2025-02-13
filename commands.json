@@ -1,9 +1,5 @@
 [
-    {
-        "command_name": "open_browser",
-        "trigger_phrase": "open browser",
-        "category": "applications"
-    },
+  
     {
         "command_name": "open_youtube",
         "trigger_phrase": "open youtube",

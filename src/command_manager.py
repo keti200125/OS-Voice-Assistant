@@ -1,3 +1,8 @@
+"""
+Command Manager Module
+
+This module provides functionality for managing system and web commands.
+"""
 import webbrowser
 import os
 import json
@@ -8,8 +13,10 @@ from src.db_manager import DatabaseManager
 class CommandManager:
     """Manages commands for opening applications, websites, and system utilities."""
 
-    def __init__(self, db_manager: DatabaseManager, gui_root=None, command_file="commands_action.json"):
-        """Initializes the CommandManager with a database manager and optional GUI root."""
+    def __init__(self, db_manager: DatabaseManager,
+                 gui_root=None,
+                 command_file="commands_action.json"):
+        """Initializes the CommandManager with a db manager and optional GUI root."""
         self.db_manager = db_manager
         self.gui_root = gui_root
         self.commands = self.load_commands(command_file)
@@ -42,7 +49,8 @@ class CommandManager:
 
     def execute_command(self, command_name: str):
         """Executes a command based on its category (web or system)."""
-        command = next((cmd for cmd in self.commands if cmd["command_name"] == command_name), None)
+        command = next(
+            (cmd for cmd in self.commands if cmd["command_name"] == command_name), None)
         if not command:
             print(f"Unknown command: {command_name}")
             return

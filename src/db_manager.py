@@ -34,7 +34,8 @@ class DatabaseManager:
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             command_name TEXT UNIQUE NOT NULL, 
             trigger_phrase TEXT NOT NULL,      
-            category TEXT NOT NULL
+            category TEXT NOT NULL,
+            command_action TEXT NOT NULL
         )
         """)
         self.conn.commit()
@@ -67,20 +68,6 @@ class DatabaseManager:
                 commands
             )
 
-    def add_command(self, command_name: str, trigger_phrase: str, category: str) -> None:
-        """Adds a new command to the database."""
-        try:
-            with self.conn:
-                self.cursor.execute(
-                    """
-                    INSERT INTO commands (command_name, trigger_phrase, category) 
-                    VALUES (?, ?, ?)
-                    """,
-                    (command_name, trigger_phrase, category)
-                )
-        except sqlite3.IntegrityError:
-            print(f"Command '{command_name}' already exists!")
-
     def update_trigger_phrase(self, command_name: str, new_trigger_phrase: str) -> None:
         """Updates the trigger phrase of an existing command."""
         with self.conn:
@@ -111,11 +98,6 @@ class DatabaseManager:
         )
         return self.cursor.fetchall()
 
-    def delete_command(self, command_name: str) -> None:
-        """Deletes a command from the database."""
-        with self.conn:
-            self.cursor.execute(
-                "DELETE FROM commands WHERE command_name = ?", (command_name,))
 
     def close_connection(self) -> None:
         """Closes the database connection."""
