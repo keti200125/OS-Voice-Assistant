@@ -12,3 +12,6 @@ assistant_data.db
 
 # Ignore environment-related files
 .env
+
+# Ignore test related files
+.coverage
