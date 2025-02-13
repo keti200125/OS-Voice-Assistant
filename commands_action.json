@@ -1,0 +1,97 @@
+[
+    {
+        "command_name": "open_google",
+        "call_category": "web",
+        "command_action": "https://www.google.com"
+    },
+    {
+        "command_name": "open_youtube",
+        "call_category": "web",
+        "command_action": "https://www.youtube.com"
+    },
+    {
+        "command_name": "open_gmail",
+        "call_category": "web",
+        "command_action": "https://mail.google.com"
+    },
+    {
+        "command_name": "open_spotify",
+        "call_category": "web",
+        "command_action": "https://open.spotify.com"
+    },
+    {
+        "command_name": "open_moodle",
+        "call_category": "web",
+        "command_action": "https://learn.fmi.uni-sofia.bg/"
+    },
+    {
+        "command_name": "open_github_repo",
+        "call_category": "web",
+        "command_action": "https://github.com/keti200125/OS-Voice-Assistant"
+    },
+    {
+        "command_name": "open_python_course",
+        "call_category": "web",
+        "command_action": "https://github.com/keti200125/OS-Voice-Assistant"
+    },
+    {
+        "command_name": "open_notepad",
+        "call_category": "system",
+        "command_action": "notepad"
+    },
+    {
+        "command_name": "open_calculator",
+        "call_category": "system",
+        "command_action": "calc"
+    },
+    {
+        "command_name": "open_settings",
+        "call_category": "system",
+        "command_action": "start ms-settings:"
+    },
+    {
+        "command_name": "open_file_explorer",
+        "call_category": "system",
+        "command_action": "explorer"
+    },
+    {
+        "command_name": "open_task_manager",
+        "call_category": "system",
+        "command_action": "taskmgr"
+    },
+    {
+        "command_name": "open_powershell",
+        "call_category": "system",
+        "command_action": "start powershell"
+    },
+    {
+        "command_name": "open_control_panel",
+        "call_category": "system",
+        "command_action": "control"
+    },
+    {
+        "command_name": "check_battery_status",
+        "call_category": "system",
+        "command_action": "powercfg /batteryreport && start battery-report.html"
+    },
+    {
+        "command_name": "check_ip_address",
+        "call_category": "system",
+        "command_action": "ipconfig"
+    },
+    {
+        "command_name": "check_disk_space",
+        "call_category": "system",
+        "command_action": "wmic logicaldisk get size,freespace,caption"
+    },
+    {
+        "command_name": "check_running_processes",
+        "call_category": "system",
+        "command_action": "tasklist"
+    },
+    {
+        "command_name": "check_system_uptime",
+        "call_category": "system",
+        "command_action": "net stats srv"
+    }
+]
