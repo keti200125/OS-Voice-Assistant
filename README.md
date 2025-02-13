@@ -1,6 +1,8 @@
 # OS-Voice-Assistant
 
-OS Voice Assistant is a Python-based voice-controlled assistant that can recognize spoken commands and execute predefined actions. The project utilizes speech_recognition for speech processing and pyttsx3 for text-to-speech output.
+OS Voice Assistant is a Python-based voice-controlled assistant that can recognize spoken commands and execute predefined actions. The project utilizes `speech_recognition` for speech processing and `pyttsx3` for text-to-speech output.
+
+
 
 ## Features
 
@@ -14,6 +16,8 @@ OS Voice Assistant is a Python-based voice-controlled assistant that can recogni
 
 * Provides spoken feedback
 
+
+
 ## Requirements
 
 Before installing, make sure you have the following:
@@ -21,6 +25,7 @@ Before installing, make sure you have the following:
 * Python 3.10 or later
 
 * A working microphone
+
 
 ## Installation
 
@@ -47,6 +52,7 @@ pip install -r requirements.txt
 python main.py
 ```
 
+
 ## **Project Structure**
 ```bash
 📁 OS-Voice-Assistant/               # Root directory
@@ -70,3 +76,11 @@ python main.py
 │── README.md                        # Project documentation
 │── .gitignore                       # What to be ignored by Git
 ```
+
+
+##  Future Improvements
+- Integration with Linux
+- Better GUI
+- More commands
+- Possibility for users to ask for new commands
+- Showing the info from check commands in the GUI
