@@ -1,5 +1,9 @@
 [
-  
+    {
+        "command_name": "open_google",
+        "trigger_phrase": "open google",
+        "category": "applications"
+    },
     {
         "command_name": "open_youtube",
         "trigger_phrase": "open youtube",

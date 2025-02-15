@@ -34,8 +34,7 @@ class DatabaseManager:
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             command_name TEXT UNIQUE NOT NULL, 
             trigger_phrase TEXT NOT NULL,      
-            category TEXT NOT NULL,
-            command_action TEXT NOT NULL
+            category TEXT NOT NULL
         )
         """)
         self.conn.commit()

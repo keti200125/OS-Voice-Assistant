@@ -32,7 +32,7 @@
     {
         "command_name": "open_python_course",
         "call_category": "web",
-        "command_action": "https://github.com/keti200125/OS-Voice-Assistant"
+        "command_action": "https://github.com/fmipython/PythonCourse2024"
     },
     {
         "command_name": "open_notepad",
